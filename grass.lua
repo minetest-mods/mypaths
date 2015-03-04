@@ -64,7 +64,7 @@ minetest.register_craft({
 	}
 })
 
-minetest.register_node("mypaths:slope", {
+minetest.register_node("mypaths:grass_slope", {
 	description = "Grass slope",
 	drawtype = "mesh",
 	mesh = "slope_test_slope.obj",
@@ -77,9 +77,17 @@ minetest.register_node("mypaths:slope", {
 	collision_box = slope_cbox,
 	selection_box = slope_cbox
 })
---[[
-minetest.register_node("mypaths:slope_long", {
-	description = "Grass slope",
+--Craft
+minetest.register_craft({
+	output = "mypaths:grass_slope 6",
+	recipe = {
+		{"", "","mypaths:grass"},
+		{"", "mypaths:grass","mypaths:grass"},
+		{"mypaths:grass", "mypaths:grass","mypaths:grass"},
+	}
+})
+minetest.register_node("mypaths:grass_slope_long", {
+	description = "Grass Slope Long",
 	drawtype = "mesh",
 	mesh = "slope_test_slope_long.obj",
 	tiles = {"mypaths_grass_mesh.png"},
@@ -91,7 +99,16 @@ minetest.register_node("mypaths:slope_long", {
 	collision_box = slope_cbox_long,
 	selection_box = slope_cbox_long
 })
---]]
+--Craft
+minetest.register_craft({
+	output = "mypaths:grass_slope_long 1",
+	recipe = {
+		{"mypaths:grass_slope", "mypaths:grass_slope",""},
+		{"", "",""},
+		{"", "",""},
+	}
+})
+
 minetest.register_node("mypaths:grass_ocorner", {
 	description = "Grass slope (outer corner)",
 	drawtype = "mesh",
@@ -105,6 +122,16 @@ minetest.register_node("mypaths:grass_ocorner", {
 	collision_box = ocorner_cbox,
 	selection_box = ocorner_cbox
 })
+--Craft
+minetest.register_craft({
+	output = "mypaths:grass_ocorner 4",
+	recipe = {
+		{"", "",""},
+		{"", "mypaths:grass","mypaths:grass"},
+		{"", "mypaths:grass","mypaths:grass"},
+	}
+})
+
 
 minetest.register_node("mypaths:grass_icorner", {
 	description = "Grass slope (inner corner)",
@@ -117,4 +144,13 @@ minetest.register_node("mypaths:grass_icorner", {
 	sounds = default.node_sound_leaves_defaults(),
 	on_place = minetest.rotate_node,
 	collision_box = icorner_cbox,
+})
+--Craft
+minetest.register_craft({
+	output = "mypaths:grass_icorner 5",
+	recipe = {
+		{"mypaths:grass", "mypaths:grass","mypaths:grass"},
+		{"mypaths:grass", "",""},
+		{"mypaths:grass", "",""},
+	}
 })
