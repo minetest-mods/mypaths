@@ -45,15 +45,53 @@ local ocorner_cbox = {
 	}
 }
 
+local icorner_cbox_long = {
+	type = "fixed",
+	fixed = {
+		{-0.5, -0.5, -1.5, -0.25, 0.5, 0.5},
+		{-0.5, -0.5, 0.25, 1.5, 0.5, 0.5},
+		{-0.5, -0.5, 0, 1.5, 0.375, 0.5},
+		{-0.5, -0.5, -1.5, 0, 0.375, 0.5},
+		{-0.5, -0.5, -1.5, 0.25, 0.25, 0.5},
+		{-0.5, -0.5, -1.5, 0.5, 0.125, 0.5},
+		{-0.5, -0.5, -1.5, 0.75, 0, 0.5},
+		{-0.5, -0.5, -1.5, 1, -0.125, 0.5},
+		{-0.5, -0.5, -1.5, 1.25, -0.25, 0.5},
+		{-0.5, -0.5, -1.5, 1.5, -0.375, 0.5},
+		{-0.5, -0.5, -0.25, 1.5, 0.25, 0.5},
+		{-0.5, -0.5, -0.5, 1.5, 0.125, 0.5}, 
+		{-0.5, -0.5, -0.75, 1.5, 0, 0.5},
+		{-0.5, -0.5, -1, 1.5, -0.125, 0.5},
+		{-0.5, -0.5, -1.25, 1.5, -0.25, 0.5},
+	}
+}
+
+local ocorner_cbox_long = {
+	type = "fixed",
+	fixed = {
+		{-0.5, -0.5, 0.25, -0.25, 0.5, 0.5},
+		{-0.5, -0.5, 0, 0, 0.375, 0.5},
+		{-0.5, -0.5, -0.25, 0.25, 0.25, 0.5},
+		{-0.5, -0.5, -0.5, 0.5, 0.125, 0.5}, 
+		{-0.5, -0.5, -0.75, 0.75, 0, 0.5}, 
+		{-0.5, -0.5, -1, 1, -0.125, 0.5}, 
+		{-0.5, -0.5, -1.25, 1.25, -0.25, 0.5}, 
+		{-0.5, -0.5, -1.5, 1.5, -0.375, 0.5},
+	}
+}
+
+--Grass Block
 minetest.register_node("mypaths:grass", {
-	description = "Grass",
+	description = "Fake Grass",
 	tiles = {"default_grass.png"},
 	drawtype = "normal",
 	paramtype = "light",
 	paramtype2 = "facedir",
 	groups = {crumbly = 2, soil=1},
-	sounds = default.node_sound_leaves_defaults(),
-	})
+	sounds = default.node_sound_dirt_defaults({
+		footstep = {name="default_grass_footstep", gain=0.25},
+	}),
+})
 --Craft
 minetest.register_craft({
 	output = "mypaths:grass 9",
@@ -67,12 +105,14 @@ minetest.register_craft({
 minetest.register_node("mypaths:grass_slope", {
 	description = "Grass slope",
 	drawtype = "mesh",
-	mesh = "slope_test_slope.obj",
-	tiles = {"mypaths_grass_mesh.png"},
+	mesh = "twelve-twelve.obj",
+	tiles = {"default_grass.png"},
 	paramtype = "light",
 	paramtype2 = "facedir",
-	groups = {choppy=2, oddly_breakable_by_hand=2, flammable=3},
-	sounds = default.node_sound_leaves_defaults(),
+	groups = {crumbly = 2, soil=1},
+	sounds = default.node_sound_dirt_defaults({
+		footstep = {name="default_grass_footstep", gain=0.25},
+	}),
 	on_place = minetest.rotate_node,
 	collision_box = slope_cbox,
 	selection_box = slope_cbox
@@ -89,12 +129,14 @@ minetest.register_craft({
 minetest.register_node("mypaths:grass_slope_long", {
 	description = "Grass Slope Long",
 	drawtype = "mesh",
-	mesh = "slope_test_slope_long.obj",
-	tiles = {"mypaths_grass_mesh.png"},
+	mesh = "six-twelve_slope.obj",
+	tiles = {"default_grass.png"},
 	paramtype = "light",
 	paramtype2 = "facedir",
-	groups = {choppy=2, oddly_breakable_by_hand=2, flammable=3},
-	sounds = default.node_sound_wood_defaults(),
+	groups = {crumbly = 2, soil=1},
+	sounds = default.node_sound_dirt_defaults({
+		footstep = {name="default_grass_footstep", gain=0.25},
+	}),
 	on_place = minetest.rotate_node,
 	collision_box = slope_cbox_long,
 	selection_box = slope_cbox_long
@@ -112,12 +154,14 @@ minetest.register_craft({
 minetest.register_node("mypaths:grass_ocorner", {
 	description = "Grass slope (outer corner)",
 	drawtype = "mesh",
-	mesh = "slope_test_ocorner.obj",
-	tiles = {"mypaths_grass_mesh.png"},
+	mesh = "twelve-twelve-oc.obj",
+	tiles = {"default_grass.png"},
 	paramtype = "light",
 	paramtype2 = "facedir",
-	groups = {choppy=2, oddly_breakable_by_hand=2, flammable=3},
-	sounds = default.node_sound_leaves_defaults(),
+	groups = {crumbly = 2, soil=1},
+	sounds = default.node_sound_dirt_defaults({
+		footstep = {name="default_grass_footstep", gain=0.25},
+	}),
 	on_place = minetest.rotate_node,
 	collision_box = ocorner_cbox,
 	selection_box = ocorner_cbox
@@ -136,14 +180,17 @@ minetest.register_craft({
 minetest.register_node("mypaths:grass_icorner", {
 	description = "Grass slope (inner corner)",
 	drawtype = "mesh",
-	mesh = "slope_test_icorner.obj",
-	tiles = {"mypaths_grass_mesh.png"},
+	mesh = "twelve-twelve-ic.obj",
+	tiles = {"default_grass.png"},
 	paramtype = "light",
 	paramtype2 = "facedir",
-	groups = {choppy=2, oddly_breakable_by_hand=2, flammable=3},
-	sounds = default.node_sound_leaves_defaults(),
+	groups = {crumbly = 2, soil=1},
+	sounds = default.node_sound_dirt_defaults({
+		footstep = {name="default_grass_footstep", gain=0.25},
+	}),
 	on_place = minetest.rotate_node,
 	collision_box = icorner_cbox,
+	selection_box = icorner_cbox
 })
 --Craft
 minetest.register_craft({
@@ -152,5 +199,53 @@ minetest.register_craft({
 		{"mypaths:grass", "mypaths:grass","mypaths:grass"},
 		{"mypaths:grass", "",""},
 		{"mypaths:grass", "",""},
+	}
+})
+minetest.register_node("mypaths:grass_slope_long_oc", {
+	description = "Grass Slope Long (Outer Corner)",
+	drawtype = "mesh",
+	mesh = "six-twelve_slope-oc.obj",
+	tiles = {"default_grass.png"},
+	paramtype = "light",
+	paramtype2 = "facedir",
+	groups = {crumbly = 2, soil=1},
+	sounds = default.node_sound_dirt_defaults({
+		footstep = {name="default_grass_footstep", gain=0.25},
+	}),
+	on_place = minetest.rotate_node,
+	collision_box = ocorner_cbox_long,
+	selection_box = ocorner_cbox_long
+})
+--Craft
+minetest.register_craft({
+	output = "mypaths:grass_slope_long_oc 3",
+	recipe = {
+		{"mypaths:grass_slope", "mypaths:grass_slope","mypaths:grass_slope"},
+		{"mypaths:grass_slope", "mypaths:grass_slope",""},
+		{"mypaths:grass_slope", "",""},
+	}
+})
+minetest.register_node("mypaths:grass_slope_long_ic", {
+	description = "Grass Slope Long (Inner Corner)",
+	drawtype = "mesh",
+	mesh = "six-twelve_slope-ic.obj",
+	tiles = {"default_grass.png"},
+	paramtype = "light",
+	paramtype2 = "facedir",
+	groups = {crumbly = 2, soil=1},
+	sounds = default.node_sound_dirt_defaults({
+		footstep = {name="default_grass_footstep", gain=0.25},
+	}),
+	on_place = minetest.rotate_node,
+	collision_box = icorner_cbox_long,
+	selection_box = icorner_cbox_long
+})
+--Craft
+minetest.register_craft({
+	output = "mypaths:grass_slope_long_ic 4",
+	recipe = {
+		{"mypaths:grass_slope", "mypaths:grass_slope","mypaths:grass_slope"},
+		{"mypaths:grass_slope", "mypaths:grass_slope","mypaths:grass_slope"},
+		{"mypaths:grass_slope", "mypaths:grass_slope",""},
 	}
 })
