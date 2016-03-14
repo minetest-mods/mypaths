@@ -4,7 +4,12 @@ dofile(minetest.get_modpath("mypaths").."/dirt_road_slopes.lua")
 dofile(minetest.get_modpath("mypaths").."/stone_paths.lua")
 dofile(minetest.get_modpath("mypaths").."/grass.lua")
 
-
+if minetest.get_modpath("ethereal") then
+	dofile(minetest.get_modpath("mypaths").."/ethereal.lua")
+	minetest.register_alias("mypaths:dirt_road", "ethereal:dry_dirt")
+else
+	dofile(minetest.get_modpath("mypaths").."/crafts.lua")
+end
 if minetest.get_modpath("moreblocks") then
 
         stairsplus:register_all(

@@ -37,6 +37,7 @@ minetest.register_node("mypaths:dirt_road_slope", {
 	selection_box = slope_cbox
 })
 
+
 --Craft
 minetest.register_craft({
 	output = "mypaths:dirt_road_slope 6",
@@ -86,15 +87,6 @@ minetest.register_node("mypaths:dirt_dirt_slope", {
 	selection_box = slope_cbox
 })
 
---Craft
-minetest.register_craft({
-	output = "mypaths:dirt_dirt_slope 6",
-	recipe = {
-		{"", "","mypaths:dirt_road"},
-		{"", "mypaths:dirt_road","mypaths:dirt_road"},
-		{"mypaths:dirt_road", "mypaths:dirt_road","mypaths:dirt_road"},
-	}
-})
 --Dirt Road Slope Long
 minetest.register_node("mypaths:dirt_slope_long", {
 	description = "Dirt Long slope",
