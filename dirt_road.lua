@@ -150,3 +150,93 @@ minetest.register_node("mypaths:dirt_road_ocorner", {
 	sounds = default.node_sound_dirt_defaults(),
 })
 
+
+--Dirt Road Narrow
+minetest.register_node("mypaths:dirt_road_narrow", {
+	description = "Narrow Dirt Road",
+	tiles = {"default_grass.png^mypaths_dirt_road_narrow_path.png",
+			"default_grass.png^mypaths_dirt_road_narrow_path.png",
+			"default_grass.png",
+			"default_grass.png",
+			"default_grass.png^mypaths_dirt_road_narrow_path.png",
+			"default_grass.png^mypaths_dirt_road_narrow_path.png",
+			},
+	drawtype = "normal",
+	paramtype = "light",
+	paramtype2 = "facedir",
+	groups = {crumbly = 2},
+	is_ground_content = false,
+	sounds = default.node_sound_dirt_defaults(),
+})
+
+--Dirt Road Narrow End
+minetest.register_node("mypaths:dirt_road_narrow_end", {
+	description = "Narrow Dirt Road End",
+	tiles = {"default_grass.png^mypaths_dirt_road_narrow_path_end.png",
+			"default_grass.png^mypaths_dirt_road_narrow_path_end.png^[transformR180",
+			"default_grass.png",
+			"default_grass.png",
+			"default_grass.png",
+			"default_grass.png^mypaths_dirt_road_narrow_path.png",
+			},
+	drawtype = "normal",
+	paramtype = "light",
+	paramtype2 = "facedir",
+	groups = {crumbly = 2},
+	is_ground_content = false,
+	sounds = default.node_sound_dirt_defaults(),
+})
+
+--Dirt Road Narrow 90
+minetest.register_node("mypaths:dirt_road_narrow_90", {
+	description = "Narrow Dirt Road 90 Degree",
+	tiles = {"default_grass.png^mypaths_dirt_road_narrow_path_90.png",
+			"default_grass.png^mypaths_dirt_road_narrow_path_90.png^[transformR90",
+			"default_grass.png^mypaths_dirt_road_narrow_path.png",
+			"default_grass.png",
+			"default_grass.png",
+			"default_grass.png^mypaths_dirt_road_narrow_path.png",
+			},
+	drawtype = "normal",
+	paramtype = "light",
+	paramtype2 = "facedir",
+	groups = {crumbly = 2},
+	is_ground_content = false,
+	sounds = default.node_sound_dirt_defaults(),
+})
+
+--Dirt Road Narrow Junction
+minetest.register_node("mypaths:dirt_road_narrow_junction", {
+	description = "Narrow Dirt Road Junction",
+	tiles = {"default_grass.png^mypaths_dirt_road_narrow_path_junction.png",
+			"default_grass.png^mypaths_dirt_road_narrow_path_junction.png^[transformR180",
+			"default_grass.png^mypaths_dirt_road_side.png",
+			"default_grass.png^mypaths_dirt_road_side.png^[transformR180",
+			"default_grass.png^mypaths_dirt_road_narrow_path.png",
+			"default_grass.png^mypaths_dirt_road.png",
+			},
+	drawtype = "normal",
+	paramtype = "light",
+	paramtype2 = "facedir",
+	groups = {crumbly = 2},
+	is_ground_content = false,
+	sounds = default.node_sound_dirt_defaults(),
+})
+
+--Dirt Road Narrow Junction 2
+minetest.register_node("mypaths:dirt_road_narrow_junction2", {
+	description = "Narrow Dirt Road Junction 2",
+	tiles = {"default_grass.png^mypaths_dirt_road_narrow_path_junction2.png",
+			"default_grass.png^mypaths_dirt_road_narrow_path_junction2.png",
+			"default_grass.png",
+			"default_grass.png^mypaths_dirt_road_narrow_path.png",
+			"default_grass.png^mypaths_dirt_road_narrow_path.png",
+			"default_grass.png^mypaths_dirt_road_narrow_path.png",
+			},
+	drawtype = "normal",
+	paramtype = "light",
+	paramtype2 = "facedir",
+	groups = {crumbly = 2},
+	is_ground_content = false,
+	sounds = default.node_sound_dirt_defaults(),
+})

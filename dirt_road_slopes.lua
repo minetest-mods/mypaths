@@ -164,3 +164,35 @@ minetest.register_craft({
 		{"", "",""},
 	}
 })
+
+--Dirt Road Side Slope
+minetest.register_node("mypaths:dirt_road_slope_narrow", {
+	description = "Narrow Dirt Road Slope",
+	drawtype = "mesh",
+	mesh = "slope.obj",
+	tiles = {"mypaths_dirt_narrow_mesh.png"},
+	paramtype = "light",
+	paramtype2 = "facedir",
+	groups = {crumbly = 2},
+	is_ground_content = false,
+	sounds = default.node_sound_dirt_defaults(),
+	on_place = minetest.rotate_node,
+	collision_box = slope_cbox,
+	selection_box = slope_cbox
+})
+
+--Dirt Road Side Slope
+minetest.register_node("mypaths:dirt_road_slope_narrow_long", {
+	description = "Narrow Dirt Road Slope Long",
+	drawtype = "mesh",
+	mesh = "slope_long.obj",
+	tiles = {"mypaths_dirt_narrow_long_mesh.png"},
+	paramtype = "light",
+	paramtype2 = "facedir",
+	groups = {crumbly = 2},
+	is_ground_content = false,
+	sounds = default.node_sound_dirt_defaults(),
+	on_place = minetest.rotate_node,
+	collision_box = slope_cbox,
+	selection_box = slope_cbox
+})
