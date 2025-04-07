@@ -1,4 +1,16 @@
 
+--Dirt
+minetest.register_node("mypaths:dirt", {
+	description = "Dirt",
+	tiles = {"mypaths_dirt_road.png",
+			},
+	drawtype = "normal",
+	paramtype = "light",
+	paramtype2 = "facedir",
+	groups = {crumbly = 2},
+	is_ground_content = false,
+	sounds = default.node_sound_dirt_defaults(),
+})
 
 --Dirt Road Side
 minetest.register_node("mypaths:dirt_road_side", {
