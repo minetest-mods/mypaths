@@ -97,3 +97,49 @@ minetest.register_craft({
 		{"mypaths:dirt_road", "mypaths:dirt_road","mypaths:dirt_road"},
 	}
 })
+
+--Craft Narrow
+minetest.register_craft({
+	output = "mypaths:dirt_road_narrow 3",
+	recipe = {
+		{"", "default:dirt",""},
+		{"", "mypaths:dirt_road",""},
+		{"", "default:dirt",""},
+	}
+})
+
+minetest.register_craft({
+	output = "mypaths:dirt_road_narrow_end 2",
+	recipe = {
+		{"", "",""},
+		{"", "mypaths:dirt_road",""},
+		{"", "default:dirt",""},
+	}
+})
+
+minetest.register_craft({
+	output = "mypaths:dirt_road_narrow_90 3",
+	recipe = {
+		{"", "",""},
+		{"default:dirt", "mypaths:dirt_road",""},
+		{"", "default:dirt",""},
+	}
+})
+
+minetest.register_craft({
+	output = "mypaths:dirt_road_narrow_junction 6",
+	recipe = {
+		{"default:dirt", "","default:dirt"},
+		{"default:dirt", "mypaths:dirt_road","default:dirt"},
+		{"", "mypaths:dirt_road",""},
+	}
+})
+
+minetest.register_craft({
+	output = "mypaths:dirt_road_narrow_junction2 4",
+	recipe = {
+		{"", "",""},
+		{"default:dirt", "mypaths:dirt_road","default:dirt"},
+		{"", "mypaths:dirt_road",""},
+	}
+})
