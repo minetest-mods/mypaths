@@ -143,3 +143,21 @@ minetest.register_craft({
 		{"", "mypaths:dirt_road",""},
 	}
 })
+
+minetest.register_craft({
+	output = "mypaths:dirt_road_slope_narrow 3",
+	recipe = {
+		{"default:dirt", "",""},
+		{"", "mypaths:dirt_road",""},
+		{"", "","default:dirt"},
+	}
+})
+
+minetest.register_craft({
+	output = "mypaths:dirt_road_slope_narrow_long 5",
+	recipe = {
+		{"default:dirt", "",""},
+		{"mypaths:dirt_road", "mypaths:dirt_road",""},
+		{"", "mypaths:dirt_road","default:dirt"},
+	}
+})
